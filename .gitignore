@@ -1,0 +1,13 @@
+__pycache__/
+wandb/
+runs/
+images/
+img_results/
+invert_directory/
+obj_results/
+writing_symbols_outputs_all/
+writing_symbols_outputs_flux1/
+writing_symbols_outputs_nano_banana/
+writing_symbols_outputs_qwen/
+parti_*.sh
+*.png
