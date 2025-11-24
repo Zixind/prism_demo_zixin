@@ -2,6 +2,7 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl
 
 ROOT = Path(__file__).resolve().parents[1]
 
@@ -9,10 +10,40 @@ ROOT = Path(__file__).resolve().parents[1]
 JUDGE_TAGS = ["gpt_4o_mini", "gpt_5_nano"]
 RUN_TAG    = "n6_k5"
 
+PRETTY_JUDGE = {
+    "gpt_5_nano": "GPT-5 nano",
+    "gpt_4o_mini": "GPT-4o mini",
+}
+
+def pretty_judge_name(tag: str) -> str:
+    return PRETTY_JUDGE.get(tag, tag)
+
 FIG_DIR = ROOT / "figures"
 FIG_DIR.mkdir(parents=True, exist_ok=True)
 
-
+# ---- global paper-style settings ----
+mpl.rcParams.update({
+    "figure.dpi": 300,
+    "axes.facecolor": "white",
+    "axes.edgecolor": "black",
+    "axes.spines.right": False,
+    "axes.spines.top": False,
+    "axes.grid": True,
+    "grid.color": "0.9",
+    "grid.linewidth": 0.8,
+    "axes.axisbelow": True,
+    "font.size": 11,
+    "axes.titlesize": 13,
+    "axes.labelsize": 12,
+    "xtick.labelsize": 11,
+    "ytick.labelsize": 11,
+})
+def style_axes(ax):
+    """Apply paper-style tweaks to an axes."""
+    # reinforce in case rcParams change later
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.grid(True, color="0.9", linewidth=0.8)
 def find_vlm_score_csv(t2i_dir: str, judge_tag: str) -> Path:
     """
     Find the *VLM judge* CSV for a given T2I model + judge.
@@ -128,16 +159,21 @@ def main():
                 print(f"  Pearson r(VLM, DINO) = {corr:.3f}")
 
             # ---- scatter for THIS judge × THIS T2I model ----
-            fig, ax = plt.subplots(figsize=(5.0, 4.0))
+            fig, ax = plt.subplots(figsize=(5.2, 3.5))
+            style_axes(ax)
+
             ax.scatter(
                 df["vlm_score"],
                 df["dino_score"],
                 s=10,
                 alpha=0.6,
             )
-            ax.set_xlabel(f"VLM judge score (judge_{judge_tag})")
-            ax.set_ylabel("DINOv3 similarity")
-            ax.set_title(f"{label}: judge vs DINO")
+            # ax.set_xlabel(f"VLM judge score (judge_{judge_tag})")
+            if t2i_dir == "flux1_fal":
+                ax.set_ylabel("DINOv3 similarity")
+            ax.set_xlabel(pretty_judge_name(judge_tag))
+            
+            # ax.set_title(f"{label}: judge vs DINO")
 
             ax.grid(True, alpha=0.2)
             fig.tight_layout()

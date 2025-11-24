@@ -2,7 +2,32 @@ from pathlib import Path
 import pandas as pd
 import numpy as np
 import matplotlib.pyplot as plt
+import matplotlib as mpl
+
 import os
+# ---- global paper-style settings ----
+mpl.rcParams.update({
+    "figure.dpi": 300,
+    "axes.facecolor": "white",
+    "axes.edgecolor": "black",
+    "axes.spines.right": False,
+    "axes.spines.top": False,
+    "axes.grid": True,
+    "grid.color": "0.9",
+    "grid.linewidth": 0.8,
+    "axes.axisbelow": True,
+    "font.size": 11,
+    "axes.titlesize": 13,
+    "axes.labelsize": 12,
+    "xtick.labelsize": 11,
+    "ytick.labelsize": 11,
+})
+def style_axes(ax):
+    """Apply paper-style tweaks to an axes."""
+    # reinforce in case rcParams change later
+    ax.spines["top"].set_visible(False)
+    ax.spines["right"].set_visible(False)
+    ax.grid(True, color="0.9", linewidth=0.8)
 
 ROOT = Path(__file__).resolve().parents[1]
 # judge + run you want to analyse
@@ -133,6 +158,7 @@ def analyse_judge(judge_tag: str) -> pd.DataFrame:
 
     # -------- per-iteration errorbar plot --------
     fig, ax = plt.subplots(figsize=(5.2, 3.5))
+    style_axes(ax)
 
     models = list(T2I_DIRS.values())
     x_vals = np.array(sorted(scores["iteration"].unique()))
@@ -148,8 +174,14 @@ def analyse_judge(judge_tag: str) -> pd.DataFrame:
 
     ax.set_xlabel("Iteration")
     ax.set_ylabel("Score")
-    ax.set_title(f"Per-iteration judge scores (pool=6)\njudge={judge_tag}")
-    ax.legend()
+    # ax.set_title(f"Per-iteration judge scores (pool=6)\njudge={judge_tag}")
+    if judge_tag == "gpt_4o_mini":
+        ymin, ymax = ax.get_ylim()
+        ymin_data = scores["score"].min()
+        ax.set_ylim(bottom=ymin_data - 0.5, top=ymax)
+        ax.legend(loc="lower right")
+    # ax.legend()
+    
     fig.tight_layout()
     fig.savefig(FIG_DIR / f"vlm_score_mean_per_iteration_{judge_tag}.png",
                 bbox_inches="tight", dpi=300)
@@ -157,22 +189,24 @@ def analyse_judge(judge_tag: str) -> pd.DataFrame:
 
     # -------- boxplot --------
     data = [scores[scores["model"] == m]["score"].values for m in models]
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(5.2, 3.5))
+    style_axes(ax)
     ax.boxplot(data, labels=models, showmeans=True)
     ax.set_ylabel("Score")
-    ax.set_title(f"VLM score distribution (judge={judge_tag})")
+    # ax.set_title(f"VLM score distribution (judge={judge_tag})")
     fig.tight_layout()
     fig.savefig(FIG_DIR / f"vlm_score_boxplot_{judge_tag}.png",
                 bbox_inches="tight", dpi=300)
     plt.close(fig)
 
     # -------- violin plot --------
-    fig, ax = plt.subplots()
+    fig, ax = plt.subplots(figsize=(5.2, 3.5))
+    style_axes(ax)
     ax.violinplot(data, showmeans=True, showextrema=True)
     ax.set_xticks(range(1, len(models) + 1))
     ax.set_xticklabels(models)
     ax.set_ylabel("Score")
-    ax.set_title(f"VLM score distributions (judge={judge_tag})")
+    # ax.set_title(f"VLM score distributions (judge={judge_tag})")
     fig.tight_layout()
     fig.savefig(FIG_DIR / f"vlm_score_violin_{judge_tag}.png",
                 bbox_inches="tight", dpi=300)
