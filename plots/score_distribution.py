@@ -179,7 +179,7 @@ def analyse_judge(judge_tag: str) -> pd.DataFrame:
         ymin, ymax = ax.get_ylim()
         ymin_data = scores["score"].min()
         ax.set_ylim(bottom=ymin_data - 0.5, top=ymax)
-        ax.legend(loc="lower right")
+        ax.legend(loc="lower left")
     # ax.legend()
     
     fig.tight_layout()
