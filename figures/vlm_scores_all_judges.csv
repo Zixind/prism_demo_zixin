@@ -143,6 +143,12 @@ iteration,stream_idx,score,image_file,model,judge
 4,3,9.0,iter04_stream03.png,Gemini,gpt_4o_mini
 4,4,9.0,iter04_stream04.png,Gemini,gpt_4o_mini
 4,5,9.0,iter04_stream05.png,Gemini,gpt_4o_mini
+5,0,9.0,iter05_stream00.png,Gemini,gpt_4o_mini
+5,1,8.0,iter05_stream01.png,Gemini,gpt_4o_mini
+5,2,9.0,iter05_stream02.png,Gemini,gpt_4o_mini
+5,3,9.0,iter05_stream03.png,Gemini,gpt_4o_mini
+5,4,9.0,iter05_stream04.png,Gemini,gpt_4o_mini
+5,5,9.0,iter05_stream05.png,Gemini,gpt_4o_mini
 1,0,8.0,,Qwen-Image,gpt_4o_mini
 1,1,9.0,,Qwen-Image,gpt_4o_mini
 1,2,8.0,,Qwen-Image,gpt_4o_mini
