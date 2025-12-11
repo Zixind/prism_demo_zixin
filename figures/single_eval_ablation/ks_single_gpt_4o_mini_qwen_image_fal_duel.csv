@@ -1,0 +1,7 @@
+eval_type,judge_tag,t2i_dir,backbone,group1,group2,n1,n2,ks_stat,p_value
+single,gpt_4o_mini,qwen_image_fal_duel,DINO,Winner,Loser,22,22,0.6818181818181818,3.642468216632747e-05
+single,gpt_4o_mini,qwen_image_fal_duel,DINO,Winner,Tie,22,116,0.6293103448275862,1.6004963594504258e-07
+single,gpt_4o_mini,qwen_image_fal_duel,DINO,Loser,Tie,22,116,0.1724137931034483,0.5757662827809821
+single,gpt_4o_mini,qwen_image_fal_duel,CLIP-I,Winner,Loser,22,22,0.5454545454545454,0.002358498170269704
+single,gpt_4o_mini,qwen_image_fal_duel,CLIP-I,Winner,Tie,22,116,0.45297805642633227,0.0005659444940331447
+single,gpt_4o_mini,qwen_image_fal_duel,CLIP-I,Loser,Tie,22,116,0.1724137931034483,0.5757662827809821

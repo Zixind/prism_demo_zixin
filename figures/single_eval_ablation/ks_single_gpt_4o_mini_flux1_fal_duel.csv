@@ -1,0 +1,7 @@
+eval_type,judge_tag,t2i_dir,backbone,group1,group2,n1,n2,ks_stat,p_value
+single,gpt_4o_mini,flux1_fal_duel,DINO,Winner,Loser,11,11,0.36363636363636365,0.479150364599281
+single,gpt_4o_mini,flux1_fal_duel,DINO,Winner,Tie,11,78,0.3041958041958042,0.27194580420143283
+single,gpt_4o_mini,flux1_fal_duel,DINO,Loser,Tie,11,78,0.21212121212121213,0.7003188747470258
+single,gpt_4o_mini,flux1_fal_duel,CLIP-I,Winner,Loser,11,11,0.36363636363636365,0.479150364599281
+single,gpt_4o_mini,flux1_fal_duel,CLIP-I,Winner,Tie,11,78,0.3706293706293706,0.10397799390880016
+single,gpt_4o_mini,flux1_fal_duel,CLIP-I,Loser,Tie,11,78,0.2564102564102564,0.4608239914225146

@@ -1,0 +1,3 @@
+eval_type,judge_tag,t2i_dir,backbone,group1,group2,n1,n2,ks_stat,p_value
+pair,gpt_4o_mini,qwen_image_fal_duel,DINO,Winner,Loser,80,80,0.2375,0.021626029395464805
+pair,gpt_4o_mini,qwen_image_fal_duel,CLIP-I,Winner,Loser,80,80,0.2375,0.021626029395464805
