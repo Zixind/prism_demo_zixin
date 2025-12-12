@@ -1,0 +1,7 @@
+protocol,eval_type,t2i,judge_tag,tie_rate,acc_dino,acc_clip,n_pairs,n_decided,n_dino_agree_denom,n_clip_agree_denom
+Single (independent),single,Flux1-duel,gpt_4o_mini,0.78,0.5454545454545454,0.45454545454545453,50,11,11,11
+Pairwise (joint),pair,Flux1-duel,gpt_4o_mini,0.0,0.74,0.66,50,50,50,50
+Single (independent),single,Gemini-duel,gpt_4o_mini,0.88,0.8333333333333334,0.6666666666666666,50,6,6,6
+Pairwise (joint),pair,Gemini-duel,gpt_4o_mini,0.0,0.5,0.56,50,50,50,50
+Single (independent),single,Qwen-Image-duel,gpt_4o_mini,0.62,0.8947368421052632,0.7368421052631579,50,19,19,19
+Pairwise (joint),pair,Qwen-Image-duel,gpt_4o_mini,0.0,0.66,0.58,50,50,50,50

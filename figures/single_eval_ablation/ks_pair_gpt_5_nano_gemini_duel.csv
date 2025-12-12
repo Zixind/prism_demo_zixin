@@ -1,3 +1,3 @@
 eval_type,judge_tag,t2i_dir,backbone,group1,group2,n1,n2,ks_stat,p_value
-pair,gpt_5_nano,gemini_duel,DINO,Winner,Loser,200,200,0.16,0.011843449760085422
-pair,gpt_5_nano,gemini_duel,CLIP-I,Winner,Loser,200,200,0.28,2.6127403909667314e-07
+pair,gpt_5_nano,gemini_duel,DINO,Winner,Loser,50,50,0.1,0.9667464356809096
+pair,gpt_5_nano,gemini_duel,CLIP-I,Winner,Loser,50,50,0.3,0.02170784069014051

@@ -1,7 +1,7 @@
 eval_type,judge_tag,t2i_dir,backbone,group1,group2,n1,n2,ks_stat,p_value
-single,gpt_5_nano,gemini_duel,DINO,Winner,Loser,112,112,0.39285714285714285,4.2083028773918e-08
-single,gpt_5_nano,gemini_duel,DINO,Winner,Tie,112,176,0.21103896103896103,0.003747469468687017
-single,gpt_5_nano,gemini_duel,DINO,Loser,Tie,112,176,0.2077922077922078,0.004535119424187028
-single,gpt_5_nano,gemini_duel,CLIP-I,Winner,Loser,112,112,0.21428571428571427,0.011488847530442667
-single,gpt_5_nano,gemini_duel,CLIP-I,Winner,Tie,112,176,0.15584415584415584,0.06391957888147279
-single,gpt_5_nano,gemini_duel,CLIP-I,Loser,Tie,112,176,0.1461038961038961,0.09646210715242949
+single,gpt_5_nano,gemini_duel,DINO,Winner,Loser,28,28,0.39285714285714285,0.025624647770069564
+single,gpt_5_nano,gemini_duel,DINO,Winner,Tie,28,44,0.21103896103896103,0.37298187071002564
+single,gpt_5_nano,gemini_duel,DINO,Loser,Tie,28,44,0.2077922077922078,0.39138597896025057
+single,gpt_5_nano,gemini_duel,CLIP-I,Winner,Loser,28,28,0.21428571428571427,0.549366998032041
+single,gpt_5_nano,gemini_duel,CLIP-I,Winner,Tie,28,44,0.15584415584415584,0.7383612839667907
+single,gpt_5_nano,gemini_duel,CLIP-I,Loser,Tie,28,44,0.1461038961038961,0.8017505790822048
